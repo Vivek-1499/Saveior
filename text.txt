@@ -1,0 +1,7 @@
+used clerk for login sigup page
+
+supabase for database integration using prisma
+
+arcjet for to add security
+
+innjest used for sending reports and budget
