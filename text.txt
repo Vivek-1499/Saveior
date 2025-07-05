@@ -5,3 +5,12 @@ supabase for database integration using prisma
 arcjet for to add security
 
 innjest used for sending reports and budget
+
+lottie for animated icons
+
+prisma for database
+ npm i -D prisma
+ npx prisma init
+npm i @prisma/client
+//command for pushing the changes so it'll connect to supabase and create sql
+npx prisma migrate dev --name creating models

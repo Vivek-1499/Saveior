@@ -2,11 +2,15 @@
 
 import { useEffect } from "react";
 import gsap from "gsap";
-import SplitType from "split-type"; // Recommended over deprecated SplitText
+import SplitType from "split-type";
 
-export const useTextAnimation = (selector, string) => {
+export const useTextAnimation = (selector) => {
   useEffect(() => {
     const split = new SplitType(selector, { types: "chars" });
+
+    split.chars.forEach((char) => {
+      char.classList.add("gradient-title");
+    });
 
     gsap.fromTo(
       split.chars,
@@ -26,7 +30,7 @@ export const useTextAnimation = (selector, string) => {
     );
 
     return () => {
-      split.revert(); // clean up on unmount
+      split.revert();
     };
   }, [selector]);
 };

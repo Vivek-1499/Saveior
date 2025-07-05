@@ -9,8 +9,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "./ui/button";
 import { LayoutDashboard, PenBox } from "lucide-react";
+import { checkUser } from "@/lib/checkUser";
 
-const Header = () => {
+const Header = async () => {
+  await checkUser()
   return (
     <header className="w-full fixed top-0 z-50 bg-background text-foreground border-b border-border dark:bg-background backdrop-blur-md">
       <div className="conatiner max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
