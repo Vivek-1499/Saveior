@@ -14,3 +14,8 @@ prisma for database
 npm i @prisma/client
 //command for pushing the changes so it'll connect to supabase and create sql
 npx prisma migrate dev --name creating models
+
+npm i react-hook-form zod @hookform/resolvers
+react-hook-form -manage our forms
+zod - validation librarzy helps to manage error for forms
+@hookform/resolvers - help to connect the above 

@@ -14,7 +14,7 @@ function Drawer({
 function DrawerTrigger({
   ...props
 }) {
-  return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} />;
+  return <DrawerPrimitive.Trigger data-slot="drawer-trigger" {...props} className="cursor-pointer"/>;
 }
 
 function DrawerPortal({
