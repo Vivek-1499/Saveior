@@ -4,7 +4,7 @@ supabase for database integration using prisma
 
 arcjet for to add security
 
-innjest used for sending reports and budget
+innjest used for sending reports and budget mail
 
 lottie for animated icons
 
@@ -19,3 +19,7 @@ npm i react-hook-form zod @hookform/resolvers
 react-hook-form -manage our forms
 zod - validation librarzy helps to manage error for forms
 @hookform/resolvers - help to connect the above 
+npm i recharts // for charts
+
+npm install react-email -D -E // for email
+to send emial to user use RESEND service

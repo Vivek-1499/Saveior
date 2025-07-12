@@ -1,30 +1,30 @@
-import { getAccountWithTransaction } from "@/actions/accounts";
+import { getAccountWithTransactions } from "@/actions/accounts";
 import { notFound } from "next/navigation";
 import React, { Suspense } from "react";
-import TransactionTable from "../_components/TransactionTable";
+import { TransactionTable } from "../_components/TransactionTable";
 import { BarLoader } from "react-spinners";
+import AccountChart from "../_components/AccountChart";
 
 const AccountsPage = async ({ params }) => {
-  const accountData = await getAccountWithTransaction(params.id);
+  const accountData = await getAccountWithTransactions(params.id);
 
   if (!accountData) {
     notFound();
   }
 
-  const { transactions, ...account } = accountData;
+  const { transactions, totalTransactions, ...account } = accountData;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-100 dark:from-zinc-900 dark:to-zinc-800 px-6 py-10">
-      <div className="max-w-6xl mx-auto space-y-10">
+      <div className="max-w-[95%] mx-auto space-y-10">
         {/* Account Info */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 border-b pb-6">
           <div className="space-y-2">
-            <h1 className="text-5xl sm:text-6xl font-bold  gradient-title">
+            <h1 className="text-5xl sm:text-6xl font-bold gradient-title">
               {account.name}
             </h1>
             <p className="text-md text-purple-700 dark:text-purple-300 font-medium">
-              {account.type.charAt(0) + account.type.slice(1).toLowerCase()}{" "}
-              Account
+              {account.type.charAt(0) + account.type.slice(1).toLowerCase()} Account
             </p>
           </div>
 
@@ -37,14 +37,17 @@ const AccountsPage = async ({ params }) => {
             </p>
           </div>
         </div>
-        </div>
-        <div>
+        {/* Charts Section */}
+        <Suspense fallback={<BarLoader className="mt-4" color="#933333"/>}>
+        <AccountChart transactions={transactions}/>
+        </Suspense>
 
-        {/* Transactions Placeholder */}
+        {/* Transactions Table */}
         <Suspense
           fallback={
             <BarLoader className="mt-4" width={"100%"} color={"#ffffff"} />
-          }>
+          }
+        >
           <TransactionTable transactions={transactions} />
         </Suspense>
       </div>
