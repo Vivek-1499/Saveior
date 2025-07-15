@@ -339,7 +339,7 @@ export function TransactionTable({ transactions }) {
                       "text-right font-medium",
                       t.type === "EXPENSE" ? "text-red-500" : "text-green-500"
                     )}>
-                    {t.type === "EXPENSE" ? "-" : "+"}${t.amount.toFixed(2)}
+                    {t.type === "EXPENSE" ? "-" : "+"}{t.amount.toFixed(2)}
                   </TableCell>
                   <TableCell>
                     {t.isRecurring ? (

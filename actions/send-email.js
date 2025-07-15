@@ -11,8 +11,7 @@ export async function sendEmail({to, subject, react}){
     react,
 
   });
-  console.log("Resend Key:", process.env.RESEND_API_KEY);
-
+  
   return { success: true, data}
   } catch (error) {
     console.error("Resend Error:", JSON.stringify(error, null, 2));
